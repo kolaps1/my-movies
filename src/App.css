@@ -1688,6 +1688,48 @@ button {
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lang-switcher button {
+  background: transparent;
+  color: #777985;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: auto;
+  min-width: auto;
+}
+
+.lang-switcher button:hover {
+  color: white;
+}
+
+.lang-switcher button.active {
+  background: #9c82ff;
+  color: white;
+}
+
+.auth-lang-switcher {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
 .logo {
   margin-right: 36px;
 }
@@ -1735,46 +1777,6 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   vertical-align: middle;
-}
-
-/* =========================
-   LANGUAGE SWITCHER
-========================= */
-
-.lang-switcher {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 4px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.lang-switcher button {
-  background: transparent;
-  color: #777985;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 5px 9px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.lang-switcher button:hover {
-  color: white;
-}
-
-.lang-switcher button.active {
-  background: #9c82ff;
-  color: white;
-}
-
-.auth-lang-switcher {
-  position: absolute;
-  top: 25px;
-  right: 25px;
 }
 
 /* =========================
@@ -2096,7 +2098,6 @@ button {
   transform: scale(1.2);
 }
 
-
 /* =========================
    RESPONSIVE - DESKTOP FIRST
 ========================= */
@@ -2130,6 +2131,16 @@ button {
   
   .user-name {
     max-width: 100px;
+  }
+  
+  .logout-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .lang-switcher button {
+    font-size: 10px;
+    padding: 4px 7px;
   }
   
   .hero {
@@ -2197,22 +2208,30 @@ button {
   }
   
   .user-section {
-    gap: 8px;
+    gap: 6px;
   }
   
   .user-name {
-    max-width: 80px;
-    font-size: 12px;
+    max-width: 70px;
+    font-size: 11px;
   }
   
   .logout-button {
-    padding: 6px 10px;
-    font-size: 12px;
+    padding: 4px 8px;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+  
+  .lang-switcher {
+    padding: 3px;
+    gap: 3px;
+    border-radius: 6px;
   }
   
   .lang-switcher button {
-    font-size: 10px;
-    padding: 4px 7px;
+    font-size: 9px;
+    padding: 3px 6px;
+    border-radius: 4px;
   }
   
   .watchlist-count,
@@ -2410,19 +2429,32 @@ button {
     font-size: 8px;
   }
   
-  .user-name {
-    max-width: 60px;
-    font-size: 11px;
+  .user-section {
+    gap: 4px;
   }
   
-  .logout-button {
-    padding: 4px 8px;
+  .user-name {
+    max-width: 50px;
     font-size: 10px;
   }
   
-  .lang-switcher button {
+  .logout-button {
+    padding: 3px 6px;
     font-size: 9px;
-    padding: 3px 5px;
+    border-radius: 4px;
+    border-width: 1px;
+  }
+  
+  .lang-switcher {
+    padding: 2px;
+    gap: 2px;
+    border-radius: 4px;
+  }
+  
+  .lang-switcher button {
+    font-size: 8px;
+    padding: 2px 5px;
+    border-radius: 3px;
   }
   
   .hero {
@@ -2757,18 +2789,28 @@ button {
     gap: 5px;
   }
   
+  .user-section {
+    gap: 3px;
+  }
+  
   .user-name {
-    max-width: 50px;
-    font-size: 10px;
+    max-width: 40px;
+    font-size: 8px;
   }
   
   .logout-button {
-    padding: 3px 6px;
-    font-size: 9px;
+    padding: 2px 5px;
+    font-size: 8px;
+    border-radius: 3px;
+  }
+  
+  .lang-switcher {
+    padding: 2px;
+    gap: 2px;
   }
   
   .lang-switcher button {
-    font-size: 8px;
+    font-size: 7px;
     padding: 2px 4px;
   }
   
