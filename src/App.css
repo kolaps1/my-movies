@@ -2130,7 +2130,6 @@ button {
   
   .user-section {
     gap: 8px;
-    align-items: center;
   }
   
   .user-name {
@@ -2195,9 +2194,7 @@ button {
   .header {
     padding: 0 3%;
     min-height: 60px;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
+    gap: 8px;
   }
   
   .logo {
@@ -2212,8 +2209,6 @@ button {
   .navigation {
     gap: 14px;
     padding: 0 5px;
-    flex: 1;
-    justify-content: center;
   }
   
   .navigation button {
@@ -2223,8 +2218,6 @@ button {
   
   .user-section {
     gap: 5px;
-    align-items: center;
-    margin-left: auto;
   }
   
   .user-name {
@@ -2420,27 +2413,388 @@ button {
 /* Mobile Phones */
 @media (max-width: 480px) {
   .header {
-    padding: 0 8px;
-    min-height: 50px;
-    gap: 4px;
-    flex-wrap: wrap;
-    align-items: center;
+    padding: 0 12px;
+    min-height: 56px;
   }
   
   .logo {
-    font-size: 14px;
+    font-size: 16px;
     gap: 4px;
   }
   
   .logo-icon {
-    font-size: 16px;
+    font-size: 18px;
   }
   
   .navigation {
-    gap: 6px;
+    gap: 8px;
     padding: 0;
-    flex: 1;
-    justify-content: flex-start;
+  }
+  
+  .navigation button {
+    font-size: 10px;
+    gap: 3px;
+  }
+  
+  .watchlist-count,
+  .watched-count {
+    min-width: 16px;
+    height: 16px;
+    font-size: 8px;
+  }
+  
+  .user-section {
+    gap: 4px;
+  }
+  
+  .user-name {
+    max-width: 40px;
+    font-size: 9px;
+  }
+  
+  .logout-button {
+    padding: 2px 5px;
+    font-size: 8px;
+    border-radius: 3px;
+    min-height: 18px;
+    min-width: 18px;
+  }
+  
+  .lang-switcher {
+    padding: 2px;
+    gap: 2px;
+    border-radius: 3px;
+  }
+  
+  .lang-switcher button {
+    font-size: 7px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    min-height: 16px;
+    min-width: 16px;
+  }
+  
+  .hero {
+    padding: 40px 12px;
+    min-height: 300px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(28px, 7vw, 38px);
+    letter-spacing: -1px;
+  }
+  
+  .hero-description {
+    font-size: 13px;
+    margin: 15px 0;
+  }
+  
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  
+  .search-container {
+    padding: 4px;
+    gap: 4px;
+    border-radius: 10px;
+  }
+  
+  .search-icon {
+    font-size: 16px;
+    width: 24px;
+  }
+  
+  .search-container input {
+    height: 38px;
+    font-size: 12px;
+    min-width: 50px;
+  }
+  
+  .search-container input::placeholder {
+    font-size: 12px;
+  }
+  
+  .search-container button {
+    height: 38px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+  
+  .random-button {
+    height: 38px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+  
+  .refresh-button {
+    height: 38px;
+    width: 34px;
+    font-size: 16px;
+  }
+  
+  .movies-section {
+    padding: 20px 12px 40px;
+  }
+  
+  .section-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .section-title h2 {
+    font-size: 18px;
+  }
+  
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  
+  .result-count {
+    font-size: 11px;
+  }
+  
+  .movie-grid,
+  .watchlist-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  
+  .movie-info {
+    padding: 10px;
+  }
+  
+  .movie-info h3,
+  .watchlist-card-info h3 {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .movie-meta {
+    font-size: 10px;
+  }
+  
+  .details-button {
+    height: 34px;
+    font-size: 11px;
+  }
+  
+  .poster-overlay {
+    padding: 10px;
+  }
+  
+  .details-page {
+    padding: 15px 12px 40px;
+  }
+  
+  .details-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .details-poster-wrapper {
+    width: min(220px, 60%);
+    margin: 0 auto;
+  }
+  
+  .details-title {
+    font-size: clamp(24px, 6vw, 32px);
+    letter-spacing: -1px;
+  }
+  
+  .details-tagline {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  
+  .details-meta {
+    font-size: 12px;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  
+  .details-overview {
+    font-size: 14px;
+    margin-top: 18px;
+    line-height: 1.6;
+  }
+  
+  .details-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .primary-action,
+  .secondary-action,
+  .trailer-button {
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    font-size: 12px;
+    padding: 0 16px;
+  }
+  
+  .details-extra {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+  
+  .extra-item {
+    gap: 3px;
+  }
+  
+  .extra-label {
+    font-size: 10px;
+  }
+  
+  .extra-value {
+    font-size: 12px;
+  }
+  
+  .cast-section {
+    margin-top: 60px;
+  }
+  
+  .cast-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .cast-card {
+    padding: 8px 10px;
+    gap: 10px;
+  }
+  
+  .cast-photo {
+    width: 44px;
+    height: 52px;
+  }
+  
+  .cast-info strong {
+    font-size: 12px;
+  }
+  
+  .cast-info span {
+    font-size: 10px;
+  }
+  
+  .watchlist-page {
+    padding: 20px 12px 40px;
+  }
+  
+  .watchlist-title {
+    font-size: clamp(24px, 6vw, 32px);
+    letter-spacing: -1px;
+  }
+  
+  .watchlist-description {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  
+  .watchlist-total {
+    min-width: 70px;
+    padding: 10px 14px;
+  }
+  
+  .watchlist-total span {
+    font-size: 20px;
+  }
+  
+  .watchlist-total small {
+    font-size: 9px;
+  }
+  
+  .watchlist-card-info {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .remove-button {
+    height: 34px;
+    font-size: 11px;
+  }
+  
+  .watchlist-empty {
+    min-height: 300px;
+    padding: 30px 16px;
+  }
+  
+  .watchlist-empty h2 {
+    font-size: 20px;
+  }
+  
+  .watchlist-empty p {
+    font-size: 13px;
+    margin: 8px 0 16px;
+  }
+  
+  .watchlist-empty-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  
+  .trailer-modal {
+    padding: 16px;
+    margin: 10px;
+  }
+  
+  .trailer-modal-title {
+    font-size: 16px;
+    padding-right: 40px;
+    margin-bottom: 12px;
+  }
+  
+  .trailer-modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    top: 8px;
+    right: 10px;
+  }
+  
+  .auth-card {
+    padding: 30px 20px;
+  }
+  
+  .auth-logo {
+    font-size: 36px;
+  }
+  
+  .auth-card h1 {
+    font-size: 26px;
+  }
+  
+  .auth-card input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .auth-card form > button {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+  .header {
+    padding: 0 8px;
+    min-height: 50px;
+  }
+  
+  .logo {
+    font-size: 14px;
+  }
+  
+  .logo-icon {
+    font-size: 16px;
   }
   
   .navigation button {
@@ -2448,22 +2802,17 @@ button {
     gap: 2px;
   }
   
-  .watchlist-count,
-  .watched-count {
-    min-width: 14px;
-    height: 14px;
-    font-size: 7px;
+  .navigation {
+    gap: 5px;
   }
   
   .user-section {
     gap: 3px;
-    align-items: center;
-    margin-left: auto;
   }
   
   .user-name {
-    max-width: 35px;
-    font-size: 8px;
+    max-width: 30px;
+    font-size: 7px;
   }
   
   .logout-button {
@@ -2474,65 +2823,21 @@ button {
     min-width: 16px;
   }
   
-  .lang-switcher {
-    padding: 1px;
-    gap: 1px;
-    border-radius: 3px;
-  }
-  
   .lang-switcher button {
     font-size: 6px;
     padding: 1px 3px;
-    border-radius: 2px;
     min-height: 14px;
     min-width: 14px;
-  }
-  
-  .hero {
-    padding: 30px 8px;
-    min-height: 280px;
-  }
-  
-  .hero h1 {
-    font-size: clamp(24px, 6vw, 32px);
-    letter-spacing: -1px;
-  }
-  
-  .hero-description {
-    font-size: 12px;
-    margin: 12px 0;
-  }
-  
-  .eyebrow {
-    font-size: 9px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-  
-  .search-container {
-    padding: 4px;
-    gap: 4px;
-    border-radius: 8px;
-  }
-  
-  .search-icon {
-    font-size: 14px;
-    width: 20px;
   }
   
   .search-container input {
     height: 34px;
     font-size: 11px;
-    min-width: 40px;
-  }
-  
-  .search-container input::placeholder {
-    font-size: 11px;
   }
   
   .search-container button {
     height: 34px;
-    padding: 0 8px;
+    padding: 0 10px;
     font-size: 10px;
   }
   
@@ -2548,375 +2853,41 @@ button {
     font-size: 14px;
   }
   
-  .movies-section {
-    padding: 16px 8px 30px;
-  }
-  
-  .section-title {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-  
-  .section-title h2 {
-    font-size: 16px;
-  }
-  
-  .section-label {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-  
-  .result-count {
-    font-size: 10px;
-  }
-  
-  .movie-grid,
-  .watchlist-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-  
-  .movie-info {
-    padding: 8px;
-  }
-  
-  .movie-info h3,
-  .watchlist-card-info h3 {
-    font-size: 11px;
-    margin-bottom: 4px;
-  }
-  
-  .movie-meta {
-    font-size: 9px;
-  }
-  
-  .details-button {
-    height: 30px;
-    font-size: 10px;
-  }
-  
-  .poster-overlay {
-    padding: 8px;
-  }
-  
-  .details-page {
-    padding: 12px 8px 30px;
-  }
-  
-  .details-main {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .details-poster-wrapper {
-    width: min(180px, 50%);
-    margin: 0 auto;
-  }
-  
-  .details-title {
-    font-size: clamp(20px, 5vw, 28px);
-    letter-spacing: -1px;
-  }
-  
-  .details-tagline {
-    font-size: 12px;
-    margin-top: 10px;
-  }
-  
-  .details-meta {
-    font-size: 11px;
-    gap: 5px;
-    margin-top: 12px;
-  }
-  
-  .details-overview {
-    font-size: 13px;
-    margin-top: 14px;
-    line-height: 1.5;
-  }
-  
-  .details-actions {
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 16px;
-  }
-  
-  .primary-action,
-  .secondary-action,
-  .trailer-button {
-    width: 100%;
-    height: 36px;
-    justify-content: center;
-    font-size: 11px;
-    padding: 0 12px;
-  }
-  
-  .details-extra {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 18px;
-    padding-top: 16px;
-  }
-  
-  .extra-item {
-    gap: 2px;
-  }
-  
-  .extra-label {
-    font-size: 9px;
-  }
-  
-  .extra-value {
-    font-size: 11px;
-  }
-  
-  .cast-section {
-    margin-top: 40px;
-  }
-  
-  .cast-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  
-  .cast-card {
-    padding: 6px 8px;
-    gap: 8px;
-  }
-  
-  .cast-photo {
-    width: 36px;
-    height: 44px;
-  }
-  
-  .cast-info strong {
-    font-size: 11px;
-  }
-  
-  .cast-info span {
-    font-size: 9px;
-  }
-  
-  .watchlist-page {
-    padding: 16px 8px 30px;
-  }
-  
-  .watchlist-title {
-    font-size: clamp(20px, 5vw, 28px);
-    letter-spacing: -1px;
-  }
-  
-  .watchlist-description {
-    font-size: 12px;
-    margin-top: 8px;
-  }
-  
-  .watchlist-total {
-    min-width: 60px;
-    padding: 8px 12px;
-  }
-  
-  .watchlist-total span {
-    font-size: 18px;
-  }
-  
-  .watchlist-total small {
-    font-size: 8px;
-  }
-  
-  .watchlist-card-info {
-    padding: 8px;
-    gap: 8px;
-  }
-  
-  .remove-button {
-    height: 30px;
-    font-size: 10px;
-  }
-  
-  .watchlist-empty {
-    min-height: 250px;
-    padding: 20px 12px;
-  }
-  
-  .watchlist-empty h2 {
-    font-size: 18px;
-  }
-  
-  .watchlist-empty p {
-    font-size: 12px;
-    margin: 6px 0 12px;
-  }
-  
-  .watchlist-empty-icon {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-  
-  .trailer-modal {
-    padding: 12px;
-    margin: 8px;
-  }
-  
-  .trailer-modal-title {
-    font-size: 14px;
-    padding-right: 32px;
-    margin-bottom: 10px;
-  }
-  
-  .trailer-modal-close {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
-    top: 6px;
-    right: 8px;
-  }
-  
-  .auth-card {
-    padding: 24px 16px;
-  }
-  
-  .auth-logo {
-    font-size: 32px;
-  }
-  
-  .auth-card h1 {
-    font-size: 22px;
-  }
-  
-  .auth-card input {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-  
-  .auth-card form > button {
-    padding: 8px;
-    font-size: 12px;
-  }
-  
-  .back-button {
-    padding: 8px 12px;
-    font-size: 11px;
-    margin-bottom: 20px;
-  }
-}
-
-/* Very Small Phones */
-@media (max-width: 360px) {
-  .header {
-    padding: 0 4px;
-    min-height: 44px;
-    gap: 2px;
-  }
-  
-  .logo {
-    font-size: 12px;
-    gap: 2px;
-  }
-  
-  .logo-icon {
-    font-size: 14px;
-  }
-  
-  .navigation button {
-    font-size: 8px;
-    gap: 1px;
-  }
-  
-  .navigation {
-    gap: 4px;
-  }
-  
-  .user-section {
-    gap: 2px;
-  }
-  
-  .user-name {
-    max-width: 25px;
-    font-size: 7px;
-  }
-  
-  .logout-button {
-    padding: 1px 3px;
-    font-size: 6px;
-    border-radius: 2px;
-    min-height: 14px;
-    min-width: 14px;
-  }
-  
-  .lang-switcher {
-    padding: 1px;
-    gap: 1px;
-  }
-  
-  .lang-switcher button {
-    font-size: 5px;
-    padding: 1px 2px;
-    min-height: 12px;
-    min-width: 12px;
-  }
-  
-  .search-container input {
-    height: 30px;
-    font-size: 10px;
-  }
-  
-  .search-container button {
-    height: 30px;
-    padding: 0 6px;
-    font-size: 9px;
-  }
-  
-  .random-button {
-    height: 30px;
-    padding: 0 4px;
-    font-size: 10px;
-  }
-  
-  .refresh-button {
-    height: 30px;
-    width: 24px;
-    font-size: 12px;
-  }
-  
   .search-icon {
-    font-size: 12px;
-    width: 16px;
+    font-size: 14px;
+    width: 20px;
   }
   
   .movie-grid,
   .watchlist-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 6px;
+    gap: 8px;
   }
   
   .movie-info h3,
   .watchlist-card-info h3 {
-    font-size: 10px;
+    font-size: 11px;
   }
   
   .movie-meta {
-    font-size: 8px;
+    font-size: 9px;
   }
   
   .media-type-tag {
-    font-size: 7px;
-    padding: 1px 3px;
-    margin-left: 2px;
+    font-size: 8px;
+    padding: 2px 4px;
+    margin-left: 4px;
   }
   
   .status-indicator {
-    font-size: 8px;
+    font-size: 10px;
   }
   
   .watchlist-count,
   .watched-count {
-    min-width: 12px;
-    height: 12px;
-    font-size: 6px;
+    min-width: 14px;
+    height: 14px;
+    font-size: 7px;
   }
 }
 
