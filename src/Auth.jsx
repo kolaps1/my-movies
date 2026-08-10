@@ -11,7 +11,7 @@ function isValidUsername(username) {
   return /^[a-zA-Z0-9._-]{3,20}$/.test(username)
 }
 
-export default function Auth() {
+export default function Auth({ lang, setLang, t }) {
   const [mode, setMode] = useState('login')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -25,19 +25,17 @@ export default function Auth() {
     const cleanUsername = username.trim().toLowerCase()
 
     if (!cleanUsername || !password) {
-      setMessage('Заповни всі поля')
+      setMessage(t.authErrEmpty)
       return
     }
 
     if (!isValidUsername(cleanUsername)) {
-      setMessage(
-        'Логін: 3–20 символів, тільки латинські літери, цифри, . _ -'
-      )
+      setMessage(t.authErrUser)
       return
     }
 
     if (password.length < 6) {
-      setMessage('Пароль повинен містити мінімум 6 символів')
+      setMessage(t.authErrPass)
       return
     }
 
@@ -60,11 +58,9 @@ export default function Auth() {
         if (error) throw error
 
         if (data.session) {
-          setMessage('Акаунт успішно створено!')
+          setMessage(t.authOkReg)
         } else {
-          setMessage(
-            'Акаунт створено. Якщо Supabase попросить підтвердження email, перевір налаштування Confirm email.'
-          )
+          setMessage(t.authOkRegConfirm)
         }
       } else {
         const { error } = await supabase.auth.signInWithPassword({
@@ -80,13 +76,13 @@ export default function Auth() {
       const errorText = error?.message?.toLowerCase() || ''
 
       if (errorText.includes('already registered')) {
-        setMessage('Такий логін уже зайнятий')
+        setMessage(t.authErrTaken)
       } else if (errorText.includes('invalid login credentials')) {
-        setMessage('Неправильний логін або пароль')
+        setMessage(t.authErrWrong)
       } else if (errorText.includes('email address') && errorText.includes('invalid')) {
-        setMessage('Помилка технічного email. Перевір налаштування Supabase.')
+        setMessage(t.authErrEmail)
       } else {
-        setMessage(error?.message || 'Сталася помилка')
+        setMessage(error?.message || t.authErrGen)
       }
     } finally {
       setLoading(false)
@@ -102,39 +98,48 @@ export default function Auth() {
 
   return (
     <div className="auth-page">
+      <div className="lang-switcher auth-lang-switcher">
+        <button 
+          className={lang === 'en' ? 'active' : ''} 
+          onClick={() => setLang('en')}
+        >EN</button>
+        <button 
+          className={lang === 'uk' ? 'active' : ''} 
+          onClick={() => setLang('uk')}
+        >UA</button>
+      </div>
+
       <div className="auth-card">
         <div className="auth-logo">🎬</div>
 
         <h1>MyMovies</h1>
 
         <p className="auth-subtitle">
-          {mode === 'login'
-            ? 'Увійди до свого акаунта'
-            : 'Створи свій акаунт'}
+          {mode === 'login' ? t.authLoginTitle : t.authRegTitle}
         </p>
 
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Логін</label>
+          <label htmlFor="username">{t.authLoginLabel}</label>
 
           <input
             id="username"
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
-            placeholder="User"
+            placeholder={t.authLoginPlace}
             autoComplete="username"
             maxLength={20}
             disabled={loading}
           />
 
-          <label htmlFor="password">Пароль</label>
+          <label htmlFor="password">{t.authPassLabel}</label>
 
           <input
             id="password"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            placeholder="Мінімум 6 символів"
+            placeholder={t.authPassPlace}
             autoComplete={
               mode === 'login' ? 'current-password' : 'new-password'
             }
@@ -143,10 +148,10 @@ export default function Auth() {
 
           <button type="submit" disabled={loading}>
             {loading
-              ? 'Зачекай...'
+              ? t.authWait
               : mode === 'login'
-                ? 'Увійти'
-                : 'Створити акаунт'}
+                ? t.authBtnLogin
+                : t.authBtnReg}
           </button>
         </form>
 
@@ -159,16 +164,16 @@ export default function Auth() {
         <div className="auth-switch">
           {mode === 'login' ? (
             <>
-              <span>Ще немає акаунта?</span>
+              <span>{t.authNoAcc}</span>
               <button type="button" onClick={switchMode}>
-                Зареєструватися
+                {t.authSwitchReg}
               </button>
             </>
           ) : (
             <>
-              <span>Вже маєш акаунт?</span>
+              <span>{t.authHasAcc}</span>
               <button type="button" onClick={switchMode}>
-                Увійти
+                {t.authSwitchLog}
               </button>
             </>
           )}
