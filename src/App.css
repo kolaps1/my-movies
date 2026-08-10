@@ -2203,7 +2203,6 @@ button {
   .logo {
     font-size: 18px;
     gap: 6px;
-    order: 1;
   }
   
   .logo-icon {
@@ -2213,7 +2212,6 @@ button {
   .navigation {
     gap: 14px;
     padding: 0 5px;
-    order: 2;
     flex: 1;
     justify-content: center;
   }
@@ -2226,7 +2224,6 @@ button {
   .user-section {
     gap: 5px;
     align-items: center;
-    order: 3;
     margin-left: auto;
   }
   
@@ -2433,7 +2430,6 @@ button {
   .logo {
     font-size: 14px;
     gap: 4px;
-    order: 1;
   }
   
   .logo-icon {
@@ -2443,7 +2439,6 @@ button {
   .navigation {
     gap: 6px;
     padding: 0;
-    order: 2;
     flex: 1;
     justify-content: flex-start;
   }
@@ -2463,7 +2458,6 @@ button {
   .user-section {
     gap: 3px;
     align-items: center;
-    order: 3;
     margin-left: auto;
   }
   
