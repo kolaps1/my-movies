@@ -31,7 +31,7 @@ export default function Auth() {
 
     if (!isValidUsername(cleanUsername)) {
       setMessage(
-        'Нік: 3–20 символів, тільки латинські літери, цифри, . _ -'
+        'Логін: 3–20 символів, тільки латинські літери, цифри, . _ -'
       )
       return
     }
@@ -80,9 +80,9 @@ export default function Auth() {
       const errorText = error?.message?.toLowerCase() || ''
 
       if (errorText.includes('already registered')) {
-        setMessage('Такий нік уже зайнятий')
+        setMessage('Такий логін уже зайнятий')
       } else if (errorText.includes('invalid login credentials')) {
-        setMessage('Неправильний нік або пароль')
+        setMessage('Неправильний логін або пароль')
       } else if (errorText.includes('email address') && errorText.includes('invalid')) {
         setMessage('Помилка технічного email. Перевір налаштування Supabase.')
       } else {
@@ -114,14 +114,14 @@ export default function Auth() {
         </p>
 
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Нік</label>
+          <label htmlFor="username">Логін</label>
 
           <input
             id="username"
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
-            placeholder="danylo"
+            placeholder="User"
             autoComplete="username"
             maxLength={20}
             disabled={loading}
