@@ -79,6 +79,8 @@ button {
   font-weight: 800;
 
   cursor: pointer;
+  
+  flex-shrink: 0;
 }
 
 .logo-icon {
@@ -90,6 +92,9 @@ button {
   align-items: center;
 
   gap: 30px;
+  
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .navigation button {
@@ -112,6 +117,8 @@ button {
   cursor: pointer;
 
   transition: color 0.2s ease;
+  
+  white-space: nowrap;
 }
 
 .navigation button:hover {
@@ -144,6 +151,13 @@ button {
 
   font-size: 10px;
   font-weight: 800;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
 
@@ -236,6 +250,8 @@ button {
     0 20px 60px rgba(0, 0, 0, 0.25);
 
   backdrop-filter: blur(15px);
+  
+  flex-wrap: nowrap;
 }
 
 .search-icon {
@@ -247,12 +263,14 @@ button {
   color: #858693;
 
   font-size: 27px;
+  
+  flex-shrink: 0;
 }
 
 .search-container input {
   flex: 1;
 
-  min-width: 0;
+  min-width: 80px;
 
   height: 100%;
 
@@ -268,6 +286,10 @@ button {
 
 .search-container input::placeholder {
   color: #70717d;
+}
+
+.search-container input:focus {
+  outline: none;
 }
 
 .search-container button {
@@ -289,6 +311,8 @@ button {
   transition:
     background 0.2s ease,
     transform 0.2s ease;
+    
+  flex-shrink: 0;
 }
 
 .search-container button:hover:not(
@@ -320,6 +344,9 @@ button {
   justify-content: space-between;
 
   margin-bottom: 28px;
+  
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .section-label {
@@ -346,6 +373,8 @@ button {
   color: #777985;
 
   font-size: 13px;
+  
+  white-space: nowrap;
 }
 
 .movie-grid {
@@ -482,6 +511,9 @@ button {
   color: #777985;
 
   font-size: 12px;
+  
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .rating {
@@ -537,6 +569,9 @@ button {
   justify-content: space-between;
 
   margin-bottom: 45px;
+  
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .watchlist-title {
@@ -573,6 +608,8 @@ button {
   border-radius: 13px;
 
   background: rgba(255, 255, 255, 0.035);
+  
+  flex-shrink: 0;
 }
 
 .watchlist-total span {
@@ -773,6 +810,8 @@ button {
   border-radius: 18px;
 
   text-align: center;
+  
+  padding: 40px 20px;
 }
 
 .watchlist-empty-icon {
@@ -1067,7 +1106,8 @@ button {
 }
 
 .primary-action,
-.secondary-action {
+.secondary-action,
+.trailer-button {
   height: 48px;
 
   padding: 0 20px;
@@ -1078,6 +1118,8 @@ button {
   font-weight: 700;
 
   cursor: pointer;
+  
+  transition: all 0.2s ease;
 }
 
 .primary-action {
@@ -1086,7 +1128,7 @@ button {
   color: white;
 }
 
-.primary-action:hover {
+.primary-action:hover:not(:disabled) {
   background: #ad98ff;
 
   transform: translateY(-2px);
@@ -1110,7 +1152,7 @@ button {
   color: #d0d0d6;
 }
 
-.secondary-action:hover {
+.secondary-action:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.1);
 
   transform: translateY(-2px);
@@ -1156,6 +1198,8 @@ button {
   color: #c6c6ce;
 
   font-size: 13px;
+  
+  word-break: break-word;
 }
 
 
@@ -1332,6 +1376,8 @@ button {
   text-align: center;
 
   color: #777985;
+  
+  padding: 40px 20px;
 }
 
 .empty-icon {
@@ -1367,6 +1413,8 @@ button {
   color: #858692;
 
   text-align: center;
+  
+  padding: 40px 20px;
 }
 
 .message p {
@@ -1406,190 +1454,6 @@ button {
   }
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 1100px) {
-  .movie-grid,
-  .watchlist-grid {
-    grid-template-columns:
-      repeat(4, minmax(0, 1fr));
-  }
-
-  .details-main {
-    grid-template-columns: 280px 1fr;
-
-    gap: 35px;
-  }
-
-  .details-poster-wrapper {
-    width: 280px;
-  }
-
-  .cast-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 800px) {
-  .header {
-    padding: 0 5%;
-  }
-
-  .navigation {
-    gap: 18px;
-  }
-
-  .hero {
-    padding: 70px 5%;
-  }
-
-  .movies-section {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  .movie-grid,
-  .watchlist-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
-
-  .watchlist-page {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  .details-page {
-    padding: 35px 5% 70px;
-  }
-
-  .details-main {
-    grid-template-columns: 220px 1fr;
-
-    gap: 25px;
-  }
-
-  .details-poster-wrapper {
-    width: 220px;
-  }
-
-  .details-title {
-    font-size: 45px;
-  }
-
-  .cast-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .navigation {
-    gap: 10px;
-  }
-
-  .navigation button {
-    font-size: 12px;
-  }
-
-  .hero {
-    min-height: 500px;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-
-    letter-spacing: -2px;
-  }
-
-  .search-container {
-    height: auto;
-
-    padding: 7px;
-  }
-
-  .search-container input {
-    height: 50px;
-  }
-
-  .search-container button {
-    padding: 0 15px;
-  }
-
-  .movie-grid,
-  .watchlist-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 14px;
-  }
-
-  .section-title h2 {
-    font-size: 22px;
-  }
-
-  .watchlist-header {
-    align-items: flex-start;
-
-    gap: 25px;
-  }
-
-  .watchlist-total {
-    min-width: 75px;
-
-    padding: 12px;
-  }
-
-  .watchlist-title {
-    font-size: 43px;
-
-    letter-spacing: -2px;
-  }
-
-  .details-page {
-    padding-top: 25px;
-  }
-
-  .details-main {
-    display: flex;
-
-    flex-direction: column;
-  }
-
-  .details-poster-wrapper {
-    width: min(300px, 100%);
-  }
-
-  .details-info {
-    padding-top: 10px;
-  }
-
-  .details-title {
-    font-size: 42px;
-
-    letter-spacing: -2px;
-  }
-
-  .details-meta {
-    gap: 8px;
-  }
-
-  .details-extra {
-    grid-template-columns: 1fr;
-  }
-
-  .cast-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .company {
-    width: 100%;
-  }
-}
 /* =========================
    WATCHED
 ========================= */
@@ -1679,6 +1543,7 @@ button {
 
   color: #75dba5 !important;
 }
+
 /* ================================
    AUTH
 ================================ */
@@ -1788,6 +1653,7 @@ button {
   cursor: pointer;
   font-weight: 600;
 }
+
 /* ================================
    USER / LOGOUT
 ================================ */
@@ -1821,6 +1687,7 @@ button {
 .logout-button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
 .logo {
   margin-right: 36px;
 }
@@ -2038,74 +1905,6 @@ button {
   border: 0;
 }
 
-/* Mobile adjustments for trailer modal */
-@media (max-width: 600px) {
-  .trailer-modal {
-    padding: 20px 15px;
-  }
-  
-  .trailer-modal-title {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .trailer-modal-close {
-    width: 36px;
-    height: 36px;
-    font-size: 24px;
-    top: 10px;
-    right: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .trailer-button {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .details-actions {
-    flex-direction: column;
-  }
-  
-  .details-actions button {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* =========================
-   REFRESH BUTTON
-========================= */
-
-.refresh-button {
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 11px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.refresh-button:hover:not(:disabled) {
-  background: rgba(95, 202, 145, 0.2);
-  border-color: rgba(95, 202, 145, 0.4);
-  transform: rotate(180deg);
-}
-
-.refresh-button:disabled {
-  opacity: 0.5;
-  cursor: wait;
-}
-
 /* =========================
    RANDOM BUTTON WITH MENU
 ========================= */
@@ -2241,6 +2040,38 @@ button {
 }
 
 /* =========================
+   REFRESH BUTTON
+========================= */
+
+.refresh-button {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: rgba(95, 202, 145, 0.2);
+  border-color: rgba(95, 202, 145, 0.4);
+  transform: rotate(180deg);
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* =========================
    TV STATUS
 ========================= */
 
@@ -2265,22 +2096,276 @@ button {
   transform: scale(1.2);
 }
 
-@media (max-width: 600px) {
-  .random-button {
-    height: 50px;
-    padding: 0 12px;
+
+/* =========================
+   RESPONSIVE - DESKTOP FIRST
+========================= */
+
+/* Laptops / Small Desktops */
+@media (max-width: 1200px) {
+  .movie-grid,
+  .watchlist-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .header {
+    padding: 0 4%;
+    height: auto;
+    min-height: 68px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .navigation {
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .user-section {
+    gap: 10px;
+  }
+  
+  .user-name {
+    max-width: 100px;
+  }
+  
+  .hero {
+    padding: 60px 4%;
+    min-height: 400px;
+  }
+  
+  .movies-section {
+    padding: 30px 4% 60px;
+  }
+  
+  .movie-grid,
+  .watchlist-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  
+  .details-page {
+    padding: 30px 4% 60px;
+  }
+  
+  .details-main {
+    grid-template-columns: 280px 1fr;
+    gap: 35px;
+  }
+  
+  .details-poster-wrapper {
+    width: 280px;
+  }
+  
+  .cast-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .watchlist-page {
+    padding: 50px 4% 60px;
+  }
+}
+
+/* Small Tablets / Large Phones */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 3%;
+    min-height: 60px;
+    gap: 8px;
+  }
+  
+  .logo {
     font-size: 18px;
+    gap: 6px;
+  }
+  
+  .logo-icon {
+    font-size: 20px;
+  }
+  
+  .navigation {
+    gap: 14px;
+    padding: 0 5px;
+  }
+  
+  .navigation button {
+    font-size: 12px;
+    gap: 4px;
+  }
+  
+  .user-section {
+    gap: 8px;
+  }
+  
+  .user-name {
+    max-width: 80px;
+    font-size: 12px;
+  }
+  
+  .logout-button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .lang-switcher button {
+    font-size: 10px;
+    padding: 4px 7px;
+  }
+  
+  .watchlist-count,
+  .watched-count {
+    min-width: 18px;
+    height: 18px;
+    font-size: 9px;
+  }
+  
+  .hero {
+    padding: 50px 3%;
+    min-height: 350px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 50px);
+    letter-spacing: -2px;
+  }
+  
+  .hero-description {
+    font-size: 15px;
+    margin: 20px 0;
+  }
+  
+  .search-container {
+    height: auto;
+    padding: 6px;
+    gap: 8px;
+    border-radius: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .search-icon {
+    font-size: 20px;
+    width: 28px;
+  }
+  
+  .search-container input {
+    height: 44px;
+    font-size: 14px;
+    min-width: 60px;
+  }
+  
+  .search-container button {
+    height: 44px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+  
+  .random-button {
+    height: 44px;
+    padding: 0 10px;
+    font-size: 16px;
   }
   
   .refresh-button {
-    height: 50px;
-    width: 46px;
-    font-size: 20px;
+    height: 44px;
+    width: 40px;
+    font-size: 18px;
+  }
+  
+  .movies-section {
+    padding: 25px 3% 50px;
+  }
+  
+  .section-title h2 {
+    font-size: 22px;
+  }
+  
+  .movie-grid,
+  .watchlist-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  
+  .movie-info h3,
+  .watchlist-card-info h3 {
+    font-size: 13px;
+  }
+  
+  .details-page {
+    padding: 20px 3% 50px;
+  }
+  
+  .details-main {
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+  }
+  
+  .details-poster-wrapper {
+    width: 220px;
+  }
+  
+  .details-title {
+    font-size: clamp(32px, 5vw, 45px);
+    letter-spacing: -2px;
+  }
+  
+  .details-meta {
+    font-size: 13px;
+    gap: 8px;
+  }
+  
+  .details-actions {
+    flex-wrap: wrap;
+  }
+  
+  .primary-action,
+  .secondary-action,
+  .trailer-button {
+    height: 42px;
+    padding: 0 16px;
+    font-size: 12px;
+  }
+  
+  .details-extra {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .cast-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  
+  .watchlist-page {
+    padding: 30px 3% 50px;
+  }
+  
+  .watchlist-title {
+    font-size: clamp(32px, 5vw, 45px);
+    letter-spacing: -2px;
+  }
+  
+  .watchlist-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .watchlist-total {
+    min-width: 80px;
+    padding: 12px 16px;
+    align-self: stretch;
+  }
+  
+  .watchlist-total span {
+    font-size: 24px;
   }
   
   .random-menu {
     min-width: 160px;
-    right: -10px;
+    right: -5px;
   }
   
   .random-menu-item {
@@ -2289,5 +2374,527 @@ button {
   
   .random-menu-label {
     font-size: 12px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .header {
+    padding: 0 12px;
+    min-height: 56px;
+  }
+  
+  .logo {
+    font-size: 16px;
+    gap: 4px;
+  }
+  
+  .logo-icon {
+    font-size: 18px;
+  }
+  
+  .navigation {
+    gap: 8px;
+    padding: 0;
+  }
+  
+  .navigation button {
+    font-size: 10px;
+    gap: 3px;
+  }
+  
+  .watchlist-count,
+  .watched-count {
+    min-width: 16px;
+    height: 16px;
+    font-size: 8px;
+  }
+  
+  .user-name {
+    max-width: 60px;
+    font-size: 11px;
+  }
+  
+  .logout-button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .lang-switcher button {
+    font-size: 9px;
+    padding: 3px 5px;
+  }
+  
+  .hero {
+    padding: 40px 12px;
+    min-height: 300px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(28px, 7vw, 38px);
+    letter-spacing: -1px;
+  }
+  
+  .hero-description {
+    font-size: 13px;
+    margin: 15px 0;
+  }
+  
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  
+  .search-container {
+    padding: 4px;
+    gap: 4px;
+    border-radius: 10px;
+  }
+  
+  .search-icon {
+    font-size: 16px;
+    width: 24px;
+  }
+  
+  .search-container input {
+    height: 38px;
+    font-size: 12px;
+    min-width: 50px;
+  }
+  
+  .search-container input::placeholder {
+    font-size: 12px;
+  }
+  
+  .search-container button {
+    height: 38px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+  
+  .random-button {
+    height: 38px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+  
+  .refresh-button {
+    height: 38px;
+    width: 34px;
+    font-size: 16px;
+  }
+  
+  .movies-section {
+    padding: 20px 12px 40px;
+  }
+  
+  .section-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .section-title h2 {
+    font-size: 18px;
+  }
+  
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  
+  .result-count {
+    font-size: 11px;
+  }
+  
+  .movie-grid,
+  .watchlist-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  
+  .movie-info {
+    padding: 10px;
+  }
+  
+  .movie-info h3,
+  .watchlist-card-info h3 {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .movie-meta {
+    font-size: 10px;
+  }
+  
+  .details-button {
+    height: 34px;
+    font-size: 11px;
+  }
+  
+  .poster-overlay {
+    padding: 10px;
+  }
+  
+  .details-page {
+    padding: 15px 12px 40px;
+  }
+  
+  .details-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .details-poster-wrapper {
+    width: min(220px, 60%);
+    margin: 0 auto;
+  }
+  
+  .details-title {
+    font-size: clamp(24px, 6vw, 32px);
+    letter-spacing: -1px;
+  }
+  
+  .details-tagline {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  
+  .details-meta {
+    font-size: 12px;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  
+  .details-overview {
+    font-size: 14px;
+    margin-top: 18px;
+    line-height: 1.6;
+  }
+  
+  .details-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .primary-action,
+  .secondary-action,
+  .trailer-button {
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    font-size: 12px;
+    padding: 0 16px;
+  }
+  
+  .details-extra {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+  
+  .extra-item {
+    gap: 3px;
+  }
+  
+  .extra-label {
+    font-size: 10px;
+  }
+  
+  .extra-value {
+    font-size: 12px;
+  }
+  
+  .cast-section {
+    margin-top: 60px;
+  }
+  
+  .cast-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .cast-card {
+    padding: 8px 10px;
+    gap: 10px;
+  }
+  
+  .cast-photo {
+    width: 44px;
+    height: 52px;
+  }
+  
+  .cast-info strong {
+    font-size: 12px;
+  }
+  
+  .cast-info span {
+    font-size: 10px;
+  }
+  
+  .watchlist-page {
+    padding: 20px 12px 40px;
+  }
+  
+  .watchlist-title {
+    font-size: clamp(24px, 6vw, 32px);
+    letter-spacing: -1px;
+  }
+  
+  .watchlist-description {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  
+  .watchlist-total {
+    min-width: 70px;
+    padding: 10px 14px;
+  }
+  
+  .watchlist-total span {
+    font-size: 20px;
+  }
+  
+  .watchlist-total small {
+    font-size: 9px;
+  }
+  
+  .watchlist-card-info {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .remove-button {
+    height: 34px;
+    font-size: 11px;
+  }
+  
+  .watchlist-empty {
+    min-height: 300px;
+    padding: 30px 16px;
+  }
+  
+  .watchlist-empty h2 {
+    font-size: 20px;
+  }
+  
+  .watchlist-empty p {
+    font-size: 13px;
+    margin: 8px 0 16px;
+  }
+  
+  .watchlist-empty-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  
+  .trailer-modal {
+    padding: 16px;
+    margin: 10px;
+  }
+  
+  .trailer-modal-title {
+    font-size: 16px;
+    padding-right: 40px;
+    margin-bottom: 12px;
+  }
+  
+  .trailer-modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    top: 8px;
+    right: 10px;
+  }
+  
+  .auth-card {
+    padding: 30px 20px;
+  }
+  
+  .auth-logo {
+    font-size: 36px;
+  }
+  
+  .auth-card h1 {
+    font-size: 26px;
+  }
+  
+  .auth-card input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .auth-card form > button {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+  .header {
+    padding: 0 8px;
+    min-height: 50px;
+  }
+  
+  .logo {
+    font-size: 14px;
+  }
+  
+  .logo-icon {
+    font-size: 16px;
+  }
+  
+  .navigation button {
+    font-size: 9px;
+    gap: 2px;
+  }
+  
+  .navigation {
+    gap: 5px;
+  }
+  
+  .user-name {
+    max-width: 50px;
+    font-size: 10px;
+  }
+  
+  .logout-button {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  
+  .lang-switcher button {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+  
+  .search-container input {
+    height: 34px;
+    font-size: 11px;
+  }
+  
+  .search-container button {
+    height: 34px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+  
+  .random-button {
+    height: 34px;
+    padding: 0 6px;
+    font-size: 12px;
+  }
+  
+  .refresh-button {
+    height: 34px;
+    width: 30px;
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    font-size: 14px;
+    width: 20px;
+  }
+  
+  .movie-grid,
+  .watchlist-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .movie-info h3,
+  .watchlist-card-info h3 {
+    font-size: 11px;
+  }
+  
+  .movie-meta {
+    font-size: 9px;
+  }
+  
+  .media-type-tag {
+    font-size: 8px;
+    padding: 2px 4px;
+    margin-left: 4px;
+  }
+  
+  .status-indicator {
+    font-size: 10px;
+  }
+  
+  .watchlist-count,
+  .watched-count {
+    min-width: 14px;
+    height: 14px;
+    font-size: 7px;
+  }
+}
+
+/* Touch devices - better tap targets */
+@media (hover: none) {
+  .movie-card:hover {
+    transform: none;
+  }
+  
+  .watchlist-card:hover {
+    transform: none;
+  }
+  
+  .poster-overlay {
+    opacity: 1;
+    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.8));
+  }
+  
+  .watchlist-poster-overlay {
+    opacity: 1;
+    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.8));
+  }
+  
+  .details-button,
+  .watchlist-poster-overlay span {
+    background: rgba(156, 130, 255, 0.9);
+  }
+  
+  .random-button:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .refresh-button:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .primary-action:hover:not(:disabled),
+  .secondary-action:hover:not(:disabled),
+  .trailer-button:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .navigation button {
+    min-height: 36px;
+    min-width: 36px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header {
+    position: static;
+  }
+  
+  .app {
+    background: white;
+    color: black;
+  }
+  
+  .movie-card {
+    break-inside: avoid;
   }
 }
