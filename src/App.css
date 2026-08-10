@@ -1675,13 +1675,16 @@ button {
 }
 
 .logout-button {
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.05);
   color: inherit;
+  font-size: 12px;
   cursor: pointer;
   transition: 0.2s ease;
+  min-height: 30px;
+  min-width: 30px;
 }
 
 .logout-button:hover {
@@ -1695,24 +1698,24 @@ button {
 .lang-switcher {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   background: rgba(255, 255, 255, 0.05);
-  padding: 4px;
-  border-radius: 8px;
+  padding: 3px;
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .lang-switcher button {
   background: transparent;
   color: #777985;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 5px 9px;
-  border-radius: 5px;
+  padding: 3px 7px;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-height: auto;
-  min-width: auto;
+  min-height: 24px;
+  min-width: 24px;
 }
 
 .lang-switcher button:hover {
@@ -2126,21 +2129,27 @@ button {
   }
   
   .user-section {
-    gap: 10px;
+    gap: 8px;
   }
   
   .user-name {
     max-width: 100px;
-  }
-  
-  .logout-button {
-    padding: 6px 12px;
     font-size: 13px;
   }
   
+  .logout-button {
+    padding: 5px 8px;
+    font-size: 11px;
+    min-height: 28px;
+    min-width: 28px;
+    border-radius: 5px;
+  }
+  
   .lang-switcher button {
-    font-size: 10px;
-    padding: 4px 7px;
+    font-size: 9px;
+    padding: 3px 6px;
+    min-height: 22px;
+    min-width: 22px;
   }
   
   .hero {
@@ -2208,30 +2217,35 @@ button {
   }
   
   .user-section {
-    gap: 6px;
+    gap: 5px;
   }
   
   .user-name {
-    max-width: 70px;
-    font-size: 11px;
+    max-width: 60px;
+    font-size: 10px;
   }
   
   .logout-button {
-    padding: 4px 8px;
-    font-size: 10px;
-    border-radius: 6px;
+    padding: 3px 6px;
+    font-size: 9px;
+    border-radius: 4px;
+    min-height: 22px;
+    min-width: 22px;
+    border-width: 1px;
   }
   
   .lang-switcher {
-    padding: 3px;
-    gap: 3px;
-    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+    border-radius: 4px;
   }
   
   .lang-switcher button {
-    font-size: 9px;
-    padding: 3px 6px;
-    border-radius: 4px;
+    font-size: 8px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    min-height: 18px;
+    min-width: 18px;
   }
   
   .watchlist-count,
@@ -2434,27 +2448,30 @@ button {
   }
   
   .user-name {
-    max-width: 50px;
-    font-size: 10px;
+    max-width: 40px;
+    font-size: 9px;
   }
   
   .logout-button {
-    padding: 3px 6px;
-    font-size: 9px;
-    border-radius: 4px;
-    border-width: 1px;
+    padding: 2px 5px;
+    font-size: 8px;
+    border-radius: 3px;
+    min-height: 18px;
+    min-width: 18px;
   }
   
   .lang-switcher {
     padding: 2px;
     gap: 2px;
-    border-radius: 4px;
+    border-radius: 3px;
   }
   
   .lang-switcher button {
-    font-size: 8px;
-    padding: 2px 5px;
-    border-radius: 3px;
+    font-size: 7px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    min-height: 16px;
+    min-width: 16px;
   }
   
   .hero {
@@ -2794,24 +2811,23 @@ button {
   }
   
   .user-name {
-    max-width: 40px;
-    font-size: 8px;
+    max-width: 30px;
+    font-size: 7px;
   }
   
   .logout-button {
-    padding: 2px 5px;
-    font-size: 8px;
+    padding: 2px 4px;
+    font-size: 7px;
     border-radius: 3px;
-  }
-  
-  .lang-switcher {
-    padding: 2px;
-    gap: 2px;
+    min-height: 16px;
+    min-width: 16px;
   }
   
   .lang-switcher button {
-    font-size: 7px;
-    padding: 2px 4px;
+    font-size: 6px;
+    padding: 1px 3px;
+    min-height: 14px;
+    min-width: 14px;
   }
   
   .search-container input {
@@ -2922,6 +2938,17 @@ button {
   .navigation button {
     min-height: 36px;
     min-width: 36px;
+  }
+  
+  /* Виключаємо logout з великих тап-таргетів на тач-пристроях */
+  .logout-button {
+    min-height: 24px !important;
+    min-width: 24px !important;
+  }
+  
+  .lang-switcher button {
+    min-height: 20px !important;
+    min-width: 20px !important;
   }
 }
 
