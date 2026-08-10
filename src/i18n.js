@@ -78,6 +78,18 @@ export const dict = {
     trailerUnavailable: "Trailer not available",
     noTrailer: "No trailer found for this title",
 
+    // TV Status
+    status: "Status",
+    statusReturning: "Returning Series",
+    statusInProduction: "In Production",
+    statusCanceled: "Canceled",
+    statusEnded: "Ended",
+    statusPilot: "Pilot",
+    statusUnknown: "Unknown",
+    statusBadgeReturning: "Ongoing",
+    statusBadgeEnded: "Ended",
+    statusBadgeCanceled: "Canceled",
+
     // Random filter
     randomPopular: "Popular",
     randomAll: "All categories",
@@ -193,6 +205,18 @@ export const dict = {
     closeTrailer: "Закрити",
     trailerUnavailable: "Трейлер недоступний",
     noTrailer: "Трейлер не знайдено",
+
+    // TV Status
+    status: "Статус",
+    statusReturning: "Серіал виходить",
+    statusInProduction: "У виробництві",
+    statusCanceled: "Скасовано",
+    statusEnded: "Завершено",
+    statusPilot: "Пілот",
+    statusUnknown: "Невідомо",
+    statusBadgeReturning: "Виходить",
+    statusBadgeEnded: "Завершено",
+    statusBadgeCanceled: "Скасовано",
 
     // Random filter
     randomPopular: "Популярні",

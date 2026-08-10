@@ -2240,6 +2240,31 @@ button {
   font-size: 14px;
 }
 
+/* =========================
+   TV STATUS
+========================= */
+
+.status-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  font-size: 14px;
+}
+
+.status-indicator {
+  font-size: 12px;
+  margin-left: 4px;
+  display: inline-block;
+  cursor: help;
+}
+
+.status-indicator:hover {
+  transform: scale(1.2);
+}
+
 @media (max-width: 600px) {
   .random-button {
     height: 50px;

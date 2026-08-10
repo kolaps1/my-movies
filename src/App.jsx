@@ -300,11 +300,9 @@ function App() {
   // NAVIGATION
   // =========================
 
-function handleBackToHome() {
+  function handleBackToHome() {
     setSelectedMovie(null)
     setCurrentPage('home')
-    // НЕ скидаємо isRandomMode - зберігаємо стан
-    // setIsRandomMode(false) - видаляємо цей рядок
 
     window.scrollTo({
       top: 0,
@@ -315,7 +313,6 @@ function handleBackToHome() {
   function handleOpenWatchlist() {
     setSelectedMovie(null)
     setCurrentPage('watchlist')
-    // При переході на Watchlist вимикаємо random режим
     setIsRandomMode(false)
 
     window.scrollTo({
@@ -327,7 +324,6 @@ function handleBackToHome() {
   function handleOpenWatched() {
     setSelectedMovie(null)
     setCurrentPage('watched')
-    // При переході на Watched вимикаємо random режим
     setIsRandomMode(false)
 
     window.scrollTo({
@@ -360,7 +356,8 @@ function handleBackToHome() {
       release_date: movie.release_date || movie.first_air_date,
       vote_average: movie.vote_average,
       overview: movie.overview,
-      media_type: movie.media_type || 'movie'
+      media_type: movie.media_type || 'movie',
+      status: movie.status || null
     }
 
     const { error } = await supabase
@@ -443,7 +440,8 @@ function handleBackToHome() {
       release_date: movie.release_date || movie.first_air_date,
       vote_average: movie.vote_average,
       overview: movie.overview,
-      media_type: movie.media_type || 'movie'
+      media_type: movie.media_type || 'movie',
+      status: movie.status || null
     }
 
     const { error: watchedError } = await supabase
@@ -547,6 +545,30 @@ function handleBackToHome() {
       currency: 'USD',
       maximumFractionDigits: 0,
     }).format(amount)
+  }
+
+  function getStatusText(status) {
+    if (!status) return t.statusUnknown
+    const statusMap = {
+      'Returning Series': t.statusReturning,
+      'In Production': t.statusInProduction,
+      'Canceled': t.statusCanceled,
+      'Ended': t.statusEnded,
+      'Pilot': t.statusPilot
+    }
+    return statusMap[status] || status
+  }
+
+  function getStatusEmoji(status) {
+    if (!status) return '⚪'
+    const statusMap = {
+      'Returning Series': '🟢',
+      'In Production': '🟡',
+      'Canceled': '🔴',
+      'Ended': '⚫',
+      'Pilot': '⚪'
+    }
+    return statusMap[status] || '⚪'
   }
 
   function getDirector(movie) {
@@ -669,6 +691,8 @@ function handleBackToHome() {
             onBack={handleBackToHome}
             formatRuntime={formatRuntime}
             formatMoney={formatMoney}
+            getStatusText={getStatusText}
+            getStatusEmoji={getStatusEmoji}
             getDirector={getDirector}
             getMainCast={getMainCast}
             isInWatchlist={isInWatchlist(selectedMovie.id)}
@@ -686,6 +710,8 @@ function handleBackToHome() {
             onRemove={removeFromWatchlist}
             onBack={handleBackToHome}
             t={t}
+            getStatusText={getStatusText}
+            getStatusEmoji={getStatusEmoji}
           />
         ) : currentPage === 'watched' ? (
           <WatchedPage
@@ -695,6 +721,8 @@ function handleBackToHome() {
             onBack={handleBackToHome}
             t={t}
             lang={lang}
+            getStatusText={getStatusText}
+            getStatusEmoji={getStatusEmoji}
           />
         ) : (
           <>
@@ -772,7 +800,7 @@ function handleBackToHome() {
               <div className="section-title">
                 <div>
                   <p className="section-label">
-                    {isRandomMode ? '🎲' : t.resultsLabel}
+                    {isRandomMode ? '' : t.resultsLabel}
                   </p>
                   <h2>
                     {isRandomMode 
@@ -885,6 +913,11 @@ function handleBackToHome() {
                               <span className="media-type-tag">
                                 {isTv ? t.tvBadge : t.movieBadge}
                               </span>
+                              {isTv && movie.status && (
+                                <span className="status-indicator" title={getStatusText(movie.status)}>
+                                  {getStatusEmoji(movie.status)}
+                                </span>
+                              )}
                             </div>
                             <span className="rating">★ {rating}</span>
                           </div>
@@ -923,7 +956,7 @@ function handleBackToHome() {
   )
 }
 
-function WatchlistPage({ watchlist, onMovieClick, onRemove, onBack, t }) {
+function WatchlistPage({ watchlist, onMovieClick, onRemove, onBack, t, getStatusText, getStatusEmoji }) {
   return (
     <section className="watchlist-page">
       <div className="watchlist-header">
@@ -982,6 +1015,11 @@ function WatchlistPage({ watchlist, onMovieClick, onRemove, onBack, t }) {
                         <span className="media-type-tag">
                           {isTv ? t.tvBadge : t.movieBadge}
                         </span>
+                        {isTv && movie.status && (
+                          <span className="status-indicator" title={getStatusText(movie.status)}>
+                            {getStatusEmoji(movie.status)}
+                          </span>
+                        )}
                       </div>
                       <span className="rating">
                         ★ {movie.vote_average?.toFixed(1) || t.na}
@@ -1004,7 +1042,7 @@ function WatchlistPage({ watchlist, onMovieClick, onRemove, onBack, t }) {
   )
 }
 
-function WatchedPage({ watched, onMovieClick, onRemove, onBack, t, lang }) {
+function WatchedPage({ watched, onMovieClick, onRemove, onBack, t, lang, getStatusText, getStatusEmoji }) {
   return (
     <section className="watchlist-page">
       <div className="watchlist-header">
@@ -1071,6 +1109,11 @@ function WatchedPage({ watched, onMovieClick, onRemove, onBack, t, lang }) {
                         <span className="media-type-tag">
                           {isTv ? t.tvBadge : t.movieBadge}
                         </span>
+                        {isTv && movie.status && (
+                          <span className="status-indicator" title={getStatusText(movie.status)}>
+                            {getStatusEmoji(movie.status)}
+                          </span>
+                        )}
                       </div>
                       <span className="rating">
                         ★ {movie.vote_average?.toFixed(1) || t.na}
@@ -1101,6 +1144,8 @@ function MovieDetails({
   onBack,
   formatRuntime,
   formatMoney,
+  getStatusText,
+  getStatusEmoji,
   getDirector,
   getMainCast,
   isInWatchlist,
@@ -1221,6 +1266,16 @@ function MovieDetails({
                 <span className="extra-label">{t.releaseDate}</span>
                 <span className="extra-value">{dateString || t.na}</span>
               </div>
+
+              {isTv && movie.status && (
+                <div className="extra-item">
+                  <span className="extra-label">{t.status}</span>
+                  <span className="extra-value status-value">
+                    <span className="status-dot">{getStatusEmoji(movie.status)}</span>
+                    {getStatusText(movie.status)}
+                  </span>
+                </div>
+              )}
 
               {!isTv && (
                 <>
